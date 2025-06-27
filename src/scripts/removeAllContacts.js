@@ -1,3 +1,12 @@
-export const removeAllContacts = async () => {};
+import { writeContacts } from '../utils/writeContacts.js';
 
-removeAllContacts();
+export const removeAllContacts = async () => {
+  try {
+    await writeContacts([]);
+    console.log('All contacts have been removed.');
+  } catch (error) {
+    console.error('Failed to remove all contact:', error.message);
+  }
+};
+
+await removeAllContacts();
